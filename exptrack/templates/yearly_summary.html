@@ -1,0 +1,23 @@
+{% extends 'root.html' %} {% block yearly %}
+<h1 style="text-align: center">Yearly Summary</h1>
+
+<!-- Debug Output -->
+
+<div>
+  {% for year, summary_data in yearly_summary_datas.items %}
+  <h3 class="yearhead">For the year of: {{year}}</h3>
+  <div class="yearlyrecord">
+    <h5>Total Income:Rs.{{summary_data.income}}</h5>
+    <h5>Total Expenses: Rs.{{summary_data.expenses}}</h5>
+  </div>
+  <h5></h5>
+  <h5></h5>
+  <!-- <tr>
+      <td>{{ year }}</td>
+      <td>${{ summary_data.income }}</td>
+      <td>${{ summary_data.expenses }}</td>
+    </tr> -->
+  {% endfor %}
+</div>
+
+{% endblock %}

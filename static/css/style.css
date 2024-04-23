@@ -1,0 +1,478 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  /* background-color: blueviolet; */
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 22px;
+  padding: 7px;
+  color: white;
+  /* background-color: darkolivegreen; */
+  /* background-color: bisque; */
+}
+
+header a i {
+  font-size: 22px;
+  color: white;
+}
+.mainsection {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 15% 85%;
+}
+.mainsection .navone,
+.navtwo {
+  padding: 2px 4px;
+  /* height: 100vh; */
+}
+.mainsection aside {
+  background: rgb(81, 79, 79);
+  /* height: 100vh; */
+}
+.nav-link {
+  display: flex;
+  /* align-items: center; */
+}
+
+.nav-link i {
+  vertical-align: middle;
+  margin-right: 5px;
+  display: inline-block;
+  line-height: 2;
+  font-size: 21px;
+}
+.mainsection aside {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.mainsection aside .account {
+  background-color: rgb(108, 108, 97);
+}
+.mainsection aside .account p,
+h6 {
+  margin: 2px;
+  padding: 2px;
+  vertical-align: middle;
+  margin-left: 12px;
+}
+
+.mainsection aside nav h6,
+p {
+  color: white;
+  padding: 7px;
+}
+.mainsection aside nav h6 {
+  font-weight: bolder;
+  font-size: 19px;
+}
+
+.mainsection aside nav .navone {
+  padding: 7px 3px;
+}
+.mainsection aside nav .navone a,
+.navtwo a {
+  text-decoration: none;
+}
+
+.nav-link i {
+  color: white;
+}
+.nav-link p {
+  margin: auto 2px;
+}
+.nav-link:hover {
+  background-color: rgb(123, 121, 121);
+  color: black;
+}
+/* .nav-link:active {
+  background-color: rgb(103, 29, 29);
+  color: white;
+} */
+.mainsection section {
+  background-color: rgb(145, 143, 143);
+}
+.toggle {
+  height: 150px;
+  width: 170px;
+  /* display: none; */
+  position: absolute;
+  top: 8.4%;
+  /* background-color: silver; */
+  background-color: #fff;
+  right: 0px;
+  /* border-top-left-radius: 15px; */
+  /* border-bottom-left-radius: 15px; */
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+}
+#login-popup {
+  display: none;
+}
+.togdiv {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: none;
+  /* background-color: blanchedalmond; */
+}
+.profileimg {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.profileimg p {
+  margin: 0;
+  padding: 0;
+}
+.togdiv img {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  margin: 3px 0 0 0;
+}
+.profilebtn {
+  display: flex;
+  justify-content: space-between;
+  margin: 7px;
+}
+/* login */
+.logincontainer {
+  width: 300px;
+  height: 344px;
+  /* margin: auto; */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+}
+
+.logincontainer .loginhead,
+.loginform {
+  margin: 14px;
+}
+.logincontainer p {
+  color: black;
+  margin: 0px;
+  padding: 0px;
+}
+.logincontainer .loginform {
+  display: flex;
+  flex-direction: column;
+}
+.loginform a {
+  color: black;
+  text-decoration: none;
+  font-size: larger;
+  font-weight: 700;
+}
+.logincontainer .loginform input,
+p {
+  margin: 12px;
+  padding: 7px;
+}
+.loginbutton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2px 12px;
+  padding: 7px;
+}
+.spacer {
+  flex-grow: 1;
+}
+.registercontainer {
+  width: 340px;
+  height: 460px;
+  /* margin: auto; */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+}
+.registercontainer p {
+  color: black;
+  margin: 0px;
+  padding: 0px;
+}
+.registerform {
+  display: flex;
+  flex-direction: column;
+}
+.registercontainer .registerhead,
+.registerform {
+  margin: 14px;
+}
+.registercontainer .registerform p {
+  font-weight: 500;
+}
+.registercontainer .registerform input,
+p {
+  margin: 2px;
+  padding: 3px;
+}
+/* ProfilePage */
+.containerclass {
+  /* margin-top: 2%; */
+  height: 100px;
+  width: 50%;
+  margin: 2% auto;
+  padding: 7px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border-radius: 10px;
+}
+.containerclass .title {
+  font-size: 22px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.containerclass .addtask {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px;
+  /* margin: 0 12px; */
+}
+.containerclass .addtask .tasklist {
+  margin-right: 12px;
+  font-size: 17px;
+}
+
+#listcat {
+  display: none;
+}
+
+.incomeform {
+  margin-left: 30%;
+  border-radius: 10px;
+  /* margin-left: 12px; */
+  margin-top: 7%;
+  width: 34%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.incomeform h6 {
+  font-size: 22px;
+  text-align: center;
+  /* padding: 0; */
+  /* margin: 2px; */
+  color: green;
+}
+.incomeform form {
+  /* width: 270px; */
+  margin: 4px auto;
+  border-radius: 10px;
+  padding: 7px;
+}
+
+.incomeform h1 {
+  text-align: center;
+  font-size: 7px;
+  padding: 2px;
+}
+
+.incomeform form h1 span {
+  border-bottom: 2px solid #000;
+}
+
+.incomeform form label {
+  /* display: block; */
+  font-size: 14px;
+  font-weight: bold;
+  margin: 4px 0;
+  font-family: "Anek Malayalam", sans-serif;
+}
+
+.incomeform form input,
+select,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 2px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.incomeform form input:focus {
+  background: honeydew;
+}
+.incomeform form .source1 {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+  align-items: center;
+  /* padding: 7px; */
+}
+.incomeform form .source1 label {
+  margin-right: 10px;
+}
+.incomeform form .sourceamount {
+  display: flex;
+  gap: 4px;
+}
+.incomeform form #incsource2 {
+  display: none;
+}
+.incomeform form #incsource3 {
+  display: none;
+}
+button {
+  /* margin-top: 30px; */
+
+  padding: 4px 4px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+}
+
+.mybtns {
+  display: flex;
+  justify-content: flex-end;
+}
+.maincontainer table {
+  width: 90%;
+  margin: auto;
+  margin-top: 12px;
+  border: 1px solid silver;
+}
+.maincontainer table th {
+  border: 1px solid black;
+  text-align: center;
+}
+
+.maincontainer table tr .btn {
+  display: flex;
+  justify-content: space-between;
+}
+.uppercontent {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  padding: 4px;
+}
+.uppercontent .piechart {
+  flex: 70%;
+  height: 300px;
+  width: 100%;
+  margin-left: 10%;
+}
+.uppercontent .displayamount {
+  flex: 30%;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  /* box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px; */
+  margin-right: 10%;
+  padding: 12px;
+}
+.export {
+  display: flex;
+  justify-content: flex-end;
+  color: #fff;
+}
+.exportbtn {
+  margin-top: 10px;
+  color: #fff;
+  /* margin-left: auto; */
+  margin-right: 5%;
+  /* /* display: flex; */
+  /*   */
+}
+section.pagination {
+  margin-top: 20px;
+  background-color: white;
+  /* text-align: center; */
+}
+.pagination .paginator {
+  /* display: flex; */
+  /* text-align: center; */
+  /* width: 900px; */
+  margin: 9px auto;
+  padding: 7px;
+  /* background-color: blueviolet; */
+}
+.pagination .paginator .page {
+  padding: 10px;
+  font-size: 19px;
+  /* line-height: 1px; */
+  text-decoration: none;
+  background-color: rgb(119, 116, 116);
+  border-radius: 22px;
+  color: #000;
+}
+.pagination .paginator .first,
+.last {
+  margin: 0 1px;
+  background-color: rgb(119, 116, 116);
+  border-radius: 22px;
+  color: #000;
+  padding: 11px 21px;
+  width: 32px;
+}
+
+.last {
+  /* margin: 0 12px;
+  background-color: rgb(119, 116, 116);
+  border-radius: 22px;
+  color: #000; */
+  padding: 11px 27px;
+  text-decoration: none;
+  color: #000;
+  /* width: 32px; */
+}
+.pagination .paginator a i {
+  margin: 12px;
+}
+.pagination .paginator a {
+  text-decoration: none;
+}
+.search input {
+  padding: 4px;
+}
+.search {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 4%;
+}
+.search .btn {
+  vertical-align: baseline;
+}
+.yearhead {
+  color: green;
+  text-align: left;
+  margin-left: 30px;
+}
+.yearlyrecord {
+  display: flex;
+  margin-left: 20%;
+}
+.yearlyrecord h5 {
+  margin: 10px 20px;
+}
+.barchart {
+  /* height: 200px; */
+}

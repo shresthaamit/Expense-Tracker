@@ -1,0 +1,54 @@
+{% extends 'root.html' %} {% block profile%}
+
+<div class="incomeform">
+  <h6 class="" style="color: red; text-align: center">Expense Form</h6>
+  <form action="" method="post">
+    {% csrf_token %}
+    <label for="id_name">Full Name</label>
+    <input
+      type="text"
+      class="form-control"
+      value="{{ request.user.username }}"
+      readonly
+    />
+    <!-- {{ form.name }} -->
+    <div id="incsource1" class="sources">
+      <div class="source1">
+        <label for="id_source_1_name">Source 1</label>
+        <div class="tasklist" onclick="opensource2(event)">
+          <a href="#"><i class="fa fa-plus"></i></a>
+        </div>
+      </div>
+      <div class="source1">
+        <div>{{ form.source_1_name }}</div>
+        <div class="sourceamount">{{ form.source_1_amount }}</div>
+      </div>
+    </div>
+    <div id="incsource2" class="sources" style="display: none">
+      <div class="source1">
+        <label for="id_source_1_name">Source 2</label>
+        <div class="tasklist" onclick="opensource3(event)">
+          <a href="#"><i class="fa fa-plus"></i></a>
+        </div>
+      </div>
+      <div class="source1">
+        <div>{{ form.source_2_name }}</div>
+        <div class="sourceamount">{{ form.source_2_amount }}</div>
+      </div>
+    </div>
+    <div id="incsource3" class="sources" style="display: none">
+      <div class="source1">
+        <label for="id_source_3_name">Source 3</label>
+      </div>
+      <div class="source1">
+        <div>{{ form.source_3_name }}</div>
+        <div class="sourceamount">{{ form.source_3_amount }}</div>
+      </div>
+    </div>
+    <div class="mybtns">
+      <button class="btn btn-success" type="submit">Submit</button>
+      <button class="btn btn-warning" type="reset">Reset</button>
+    </div>
+  </form>
+</div>
+{% endblock%}

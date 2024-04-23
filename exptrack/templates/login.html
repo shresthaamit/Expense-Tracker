@@ -1,0 +1,50 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'css/style.css'%}" />
+    <title>Sign In</title>
+  </head>
+  <body>
+    <div class="logincontainer">
+      <div class="loginhead">
+        <h2>Sign in</h2>
+        <p>keep logged in for futher process.</p>
+        {% if messages %}
+        <!-- <ul style="margin-left: 3px; list-style-type: none;">    -->
+        {% for message in messages %}
+        <p style="font-size: 11px">{{ message }}</p>
+        {% endfor %}
+        <!-- </ul>    -->
+        {% endif %}
+      </div>
+
+      <form class="loginform p-0" action="" method="post">
+        {% csrf_token %}
+        <!-- {{form}} -->
+        {% for field in form %}
+        <input
+          type="{{ field.field.widget.input_type }}"
+          name="{{ field.name }}"
+          placeholder="{{ field.field.widget.attrs.placeholder }}"
+          required
+        />
+        {% endfor %}
+        <a href="">Forget password?</a>
+      
+      <div class="loginbutton">
+        <input class="btn btn-success p-2" name="submit" value="Sign in" type="submit"></input>
+        <div class="spacer"></div>
+        <a href="{% url 'register' %}" class="btn btn-primary">Do Register</a>
+      </div>
+    </div>
+  </body>
+</html>

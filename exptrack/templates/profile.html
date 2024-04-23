@@ -1,0 +1,23 @@
+{% extends 'root.html' %} {% block profile%}
+<!-- <h1>This is profile page</h1> -->
+<div class="containerclass">
+  <h1 class="title">My Wallet</h1>
+  <div class="addtask">
+    <div>
+      <h6>Add Income or Expenses</h6>
+    </div>
+    <div class="tasklist" onclick="tasklistpopup(event)">
+      <a href=""><i class="fa fa-user-plus"></i></a>
+    </div>
+  </div>
+  <div class="tasklistcategory" id="listcat">
+    <a href="{% url 'incomeform' %}" class="btn btn-primary">
+      <i class="fa fa-download"></i> Add Income</a
+    >
+    <a href="{% url 'expenseform' %}" class="btn btn-warning">
+      <i class="fa fa-upload"></i> Add Expenses</a
+    >
+  </div>
+</div>
+
+{% endblock %}

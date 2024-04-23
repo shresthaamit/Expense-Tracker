@@ -1,0 +1,65 @@
+{% extends 'root.html' %} {% block profile%}
+
+<div class="incomeform">
+  <h6>Income Form</h6>
+  <form action="">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" />
+    <label for="name">Profession</label>
+    <select name="hobbies" id="hobbies">
+      <option value="doctor">Doctor</option>
+      <option value="engineer">Engineer</option>
+      <option value="teacher">Teacher</option>
+    </select>
+    <div id="incsource1">
+      <div class="sources">
+        <div class="source1">
+          <label for="name">Source 1</label>
+
+          <div class="tasklist" onclick="opensource2(event)">
+            <a href=""><i class="fa fa-plus"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="sourceamount">
+        <input type="text" id="name" name="name" />
+        <input type="number" id="amount" name="amount" />
+      </div>
+    </div>
+    <div id="incsource2">
+      <div class="sources">
+        <div class="source1">
+          <label for="name">Source 2</label>
+
+          <div class="tasklist" onclick="opensource3(event)">
+            <a href=""><i class="fa fa-plus"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="sourceamount">
+        <input type="text" id="name" name="name" />
+        <input type="number" id="amount" name="amount" />
+      </div>
+    </div>
+    <div id="incsource3">
+      <div class="sources">
+        <div class="source1">
+          <label for="name">Source 3</label>
+
+          <div class="tasklist">
+            <!-- <a href=""><i class="fa fa-plus"></i></a> -->
+          </div>
+        </div>
+      </div>
+      <div class="sourceamount">
+        <input type="text" id="name" name="name" />
+        <input type="number" id="amount" name="amount" />
+      </div>
+    </div>
+    <div class="mybtns">
+      <button class="btn btn-success" type="submit">Submit</button>
+      <button class="btn btn-warning" type="reset">Reset</button>
+    </div>
+  </form>
+</div>
+{% endblock%}

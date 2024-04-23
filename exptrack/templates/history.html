@@ -1,0 +1,109 @@
+{% extends 'root.html' %} {% block record %}
+<div class="maincontainer">
+  <h1 style="text-align: center;">Financial History</h1>
+  <div class="search">
+    <form action="#">
+        <input type="text" placeholder="Search by Monthname" name="search">
+        <button class="btn">
+            <i class="fa fa-search" style="font-size: 18px;"></i>
+        </button>
+    </form>
+</div>
+  <table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Transaction</th>
+            <th colspan="3" >Source</th>
+            <th colspan="3">Amount</th>
+            <th>Date</th>
+            <!-- <th>Action</th> -->
+
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr>
+            
+            {% for data in page_obj %}
+            <td style="color: {% if data.category == 'income' %} green {% else %} red {% endif %}">
+                <h6>{{ data.category }}</h6>
+            </td>
+            <!-- <td>Rent</td>
+            <td>Rent</td> -->
+            <td>
+            
+            {% if data.source_1_name %}
+            {{ data.source_1_name }}
+        {% endif %}
+    </td>
+    <td>
+        {% if data.source_2_name %}
+        {{ data.source_2_name }}
+    {% endif %}
+</td>
+<td>
+    {% if data.source_3_name %}
+    {{ data.source_3_name }}
+{% endif %}
+</td>
+    
+            <!-- <td>{{data.source_1_amount}}</td> -->
+            
+            <!-- <td>Rs.12000</td>
+            <td>Rs.12000</td> -->
+            <td>
+                {% if data.source_1_amount %}
+                {{ data.source_1_amount }}
+            {% endif %}
+            </td>
+            <td>
+                {% if data.source_2_amount %}
+                {{ data.source_2_amount }}
+            {% endif %}
+            </td>
+            <td>
+                {% if data.source_3_amount %}
+                {{ data.source_3_amount }}
+            {% endif %}
+    
+            </td>
+            <td>{{data.date}}</td>
+            <!-- <td class="btn">
+                {% if data.category == 'income' %}
+                <a href="{% url 'editincome' data.id %}" class="btn btn-primary">Edit</a>
+                <a href="{% url 'deleteincome' data.id %}" class="btn btn-danger">Delete</a>
+                {% else %}
+                <a href="{% url 'editexpenses' data.id %}" class="btn btn-primary">Edit</a>
+                <a href="{% url 'deleteexpenses' data.id%}" class="btn btn-danger">Delete</a>
+                {% endif %}
+
+                <a href="" class="btn btn-warning">Delete</a> -->
+            </td> 
+        </tr>
+       {% endfor %}
+      
+       
+    </tbody>
+
+  </table>
+  <div class="export">
+    <a class="btn btn-success exportbtn" href="{% url 'generatepdf' %}" >Export <i class="fa fa-file-export"></i>
+    </a>
+  </div>
+  <section class="pagination">
+    <div class="paginator">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" class="first" style="font-size: 16px;" ><i class="fa fa-backward"></i>Previous</a>
+        {% endif %}
+        <a class="page" href="" style="font-size: 16px;">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</a>
+        {% if page_obj.has_next %}
+        <!-- <a class="page" href="">2</a>
+        <a class="page" href="">3</a> -->
+        <a href="?page={{ page_obj.next_page_number }}" class="first"  style="font-size: 16px;">Next<i class="fa fa-forward"></i></a>
+        {% endif %}
+    </div>
+
+  </section>
+
+
+{% endblock %}

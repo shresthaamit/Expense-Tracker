@@ -1,0 +1,110 @@
+{% extends 'root.html' %} {% block main %}
+<section>
+  <div class="maincontainer">
+    <h3 style="text-align: center; padding-top: 4px">Tracker Dashboard</h3>
+    <div class="uppercontent">
+      <div class="piechart">
+        <canvas id="barChartID"></canvas>
+      </div>
+
+      <div class="displayamount">
+        <p>Income Amount: Rs.{{totalincome}}</p>
+        <p>Expense Amount:Rs.{{totalexpense}}</p>
+        <p>Save Amount:Rs.{{totalsave}}</p>
+      </div>
+    </div>
+    <div>
+      <div class="barchart">
+        <div id="newchart"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+
+    d  = [{{ totalincome }},{{totalexpense}},{{totalsave}}]
+
+    new Chart($("#barChartID"), {
+      type: "pie",
+      options: {
+        legend: { display: true },
+        indexAxis: "x",
+        title: {
+          display: true,
+          text: "pie Chart using     library",
+        },
+      },
+      data: {
+        datasets: [
+          {
+            label: "Total",
+            backgroundColor: ["#0f0b61", "#bd1931", "#237d24"],
+            data: d,
+          },
+        ],
+        labels: ["Income", "Expenses", "Save"],
+      },
+    });
+  var monthlySummaryData = JSON.parse('{{ monthly_summary|safe }}');  // Parse the serialized data
+  console.log(monthlySummaryData);
+
+  var months = Object.keys(monthlySummaryData);
+  var incomeData = [];
+  var expenseData = [];
+
+  months.forEach(function(month) {
+    incomeData.push(monthlySummaryData[month].income);
+    expenseData.push(monthlySummaryData[month].expenses);
+  });
+    var options = {
+            series: [{
+            name: 'Income',
+            data: incomeData
+          }, {
+            name: 'Expenses',
+            data: expenseData
+          }],
+            chart: {
+            type: 'bar',
+            height: 350
+          },
+          plotOptions: {
+            bar: {
+              horizontal: false,
+              columnWidth: '55%',
+              endingShape: 'rounded'
+            },
+          },
+          dataLabels: {
+            enabled: false
+          },
+          stroke: {
+            show: true,
+            width: 2,
+            colors: ['transparent']
+          },
+          xaxis: {
+            categories: months,
+          },
+          yaxis: {
+            title: {
+              text: 'Rs (thousands)'
+            }
+          },
+          fill: {
+            opacity: 1
+          },
+          tooltip: {
+            y: {
+              formatter: function (val) {
+                return "Rs " + val + " thousands"
+              }
+            }
+          }
+          };
+
+          var chart = new ApexCharts(document.querySelector("#newchart"), options);
+          chart.render();
+          console.log("cheb");
+</script>
+{% endblock %}
